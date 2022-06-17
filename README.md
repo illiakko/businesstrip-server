@@ -1,2 +1,1 @@
 # businesstrip-server
-businesstrip-server
