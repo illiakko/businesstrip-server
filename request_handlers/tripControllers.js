@@ -1,17 +1,13 @@
 const Order = require('../models/orderModel')
 
-
-
-
 const getTrips = async (req, res) => {
     const orders = await Order.find()
     res.status(200).json(orders)
 }
 
-
 const postTrips = async (req, res) => {
-
-    const orderJSON = JSON.stringify(req.body.order.tripsArr);
+    console.log(req.body.order);
+    const orderJSON = JSON.stringify(req.body.order);
 
     const order = await Order({
         order: orderJSON
