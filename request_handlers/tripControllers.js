@@ -6,7 +6,6 @@ const getTrips = async (req, res) => {
 }
 
 const postTrips = async (req, res) => {
-    console.log(req.body.order);
     const orderJSON = JSON.stringify(req.body.order);
 
     const order = await Order({
@@ -25,7 +24,11 @@ const putTrips = (req, res) => {
 
 
 
-const deleteTrips = (req, res) => {
+const deleteTrips = async (req, res) => {
+    console.log(req.params.id);
+
+    await Order.deleteOne({ _id: req.params.id });
+
     res.send(`idi nahui delete ${req.params.id}`)
 }
 
